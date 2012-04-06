@@ -11,6 +11,7 @@
         <div class="link-meta">
             <span class="link-title"><a href="{{ link.url }}">{{ link.title }}</a></span>
             <span class="link-siteurl">{{ link.url | netloc }}</span>
+            <span class="cmd"><a href="/del/{{ link.id }}">del</a></span>
         </div>
         {% if link.comment %}
         <div class="link-comment">

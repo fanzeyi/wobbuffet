@@ -183,5 +183,18 @@ button, .btn{
 }
 
 .link {
-    margin-bottom: 20px; 
+    padding-bottom: 20px; 
+}
+
+.cmd {
+    margin-left: 3px; 
+    display: none; 
+}
+
+.cmd a {
+    color: #CCC; 
+}
+
+.link:hover .cmd {
+    display: inline; 
 }

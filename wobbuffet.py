@@ -2,16 +2,18 @@
 # AUTHOR: Zeray Rice <fanzeyi1994@gmail.com>
 # FILE: wobbuffet.py
 # CREATED: 15:57:06 06/04/2012
-# MODIFIED: 17:59:34 06/04/2012
+# MODIFIED: 18:39:12 06/04/2012
 
 import datetime
 import urlparse
 from functools import wraps
 
 from flask import Flask
+from flask import flash
 from flask import abort
 from flask import request
 from flask import Response
+from flask import redirect
 from flask import render_template
 from flaskext.sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
@@ -58,10 +60,11 @@ def get_netloc(url):
 
 @app.route("/")
 def index():
-    page = request.args.get("p", 0, type=int)
+#    page = request.args.get("p", 0, type=int)
     links = db.session.query(Link).order_by(Link.id.desc())
     link_count = links.count()
-    links = links.limit(app.config["LINKS_PER_PAGE"]).offset(page * app.config["LINKS_PER_PAGE"]).all()
+    links = links.all()
+#    links = links.limit(app.config["LINKS_PER_PAGE"]).offset(page * app.config["LINKS_PER_PAGE"]).all()
     return render_template("index.html", links = links)
 
 @app.route("/add", methods=["POST", "GET"])
@@ -97,6 +100,18 @@ def post_link():
 def button_show():
     netloc = urlparse.urlparse(request.base_url).netloc
     return render_template("button.html", netloc = netloc)
+
+@app.route("/del/<int:link_id>")
+@require_login
+def del_link(link_id):
+    try:
+        link = db.session.query(Link).filter_by(id=link_id).one()
+    except Exception:
+        abort(404)
+    else:
+        db.session.delete(link)
+        db.session.commit()
+    return redirect(request.referrer or url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug = True)
