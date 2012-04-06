@@ -2,7 +2,7 @@
 # AUTHOR: Zeray Rice <fanzeyi1994@gmail.com>
 # FILE: wobbuffet.py
 # CREATED: 15:57:06 06/04/2012
-# MODIFIED: 18:39:12 06/04/2012
+# MODIFIED: 19:14:40 06/04/2012
 
 import datetime
 import urlparse
@@ -114,4 +114,4 @@ def del_link(link_id):
     return redirect(request.referrer or url_for('index'))
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run()
