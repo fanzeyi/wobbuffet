@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<ul>
+    {% for link in links %}
+    <li class="link" id="link-{{ link.id }}">
+        <div class="link-meta">
+            <div class="link-title"><a href="{{ link.url }}">{{ link.title }}</a></div>
+            <div class="link-siteurl">{{ link.url }}</div>
+        </div>
+        <div class="link-comment">
+            <p>{{ link.comment }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
