@@ -5,16 +5,18 @@
 {% block content %}
 <header><h1>{{ config.SITE_TITLE }}</h1></header>
 <div class="content">
-<ul>
+<ul class="link-list">
     {% for link in links %}
     <li class="link" id="link-{{ link.id }}">
         <div class="link-meta">
-            <div class="link-title"><a href="{{ link.url }}">{{ link.title }}</a></div>
-            <div class="link-siteurl">{{ link.url | netloc }}</div>
+            <span class="link-title"><a href="{{ link.url }}">{{ link.title }}</a></span>
+            <span class="link-siteurl">{{ link.url | netloc }}</span>
         </div>
+        {% if link.comment %}
         <div class="link-comment">
             <p>{{ link.comment }}</p>
         </div>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>

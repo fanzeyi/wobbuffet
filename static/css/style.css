@@ -147,3 +147,41 @@ button, .btn{
     border: 1px solid #6D8F29;
     color: #3E5E00!important;
 }
+
+.link-list {
+    list-style: none; 
+    margin-left: 0; 
+    padding-left: 20px; 
+}
+
+.link-title a {
+    color: black; 
+    border-bottom: 1px dashed #CCC; 
+}
+
+.link-title a:hover {
+    text-decoration: none; 
+    border-bottom: 1px dashed #777; 
+}
+
+.link-meta {
+    color: #AAA; 
+    text-shadow: 1px 1px 0px #FFF; 
+}
+
+.link-comment {
+    margin: 10px 0 0 20px; 
+    background: url('../img/quotel.gif') no-repeat left 4px;
+    padding: 0 0 0 15px; 
+}
+
+.link-comment p {
+    word-wrap: break-word;
+    display: inline;
+    background: url('../img/quoter.gif') no-repeat right bottom;
+    padding: 0 15px 0 0; 
+}
+
+.link {
+    margin-bottom: 20px; 
+}
