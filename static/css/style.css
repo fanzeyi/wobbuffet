@@ -1,7 +1,8 @@
 body {
     padding: 0; 
     margin: 0; 
-    background-image: url('img/bg.png'); 
+    background-image: url('../img/bg.png'); 
+    font-family: 'PT Sans', sans-serif;
     margin-left: 70px; 
     margin-right: 200px; 
     margin-bottom: 50px; 
@@ -59,4 +60,90 @@ a:hover {
     height: 0px; 
     border-top: 1px solid rgba(0, 0, 0, .2); 
     border-bottom: 1px solid rgba(255, 255, 255, .5); 
+}
+
+form {
+    margin-top: 50px; 
+    width: 506px; 
+}
+
+.input-group {
+    width: 100%; 
+    margin-top: 20px; 
+}
+
+.input-group input, .input-group textarea {
+    width: 100%; 
+    max-width: 100%; 
+    border: none; 
+    outline: none; 
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 1px 1px 0px white;   
+    background: transparent; 
+}
+
+.input-group input {
+    border-bottom: 1px dashed #ccc; 
+}
+
+.input-group textarea {
+    height: 200px; 
+}
+
+.input-group label {
+    display: block; 
+    float: left; 
+    text-align: right; 
+    width: 70px; 
+}
+
+.input-controls {
+    margin-left: 80px; 
+}
+
+.form-control {
+    margin-top: 30px; 
+    text-align: right; 
+}
+
+.disabled {
+    color: #888; 
+}
+
+button {
+    margin-left: 10px; 
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 4px 10px;
+    height: 30px; 
+}
+
+.gray {
+    background: #F8F8F9;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f9',endColorstr='#e6e6e8');
+    background: -webkit-gradient(linear,0 0,0 100%,from(#F8F8F9),to(#E6E6E8));
+    background: -moz-linear-gradient(top,#F8F8F9,#E6E6E8);
+    -webkit-box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
+    -o-box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
+    text-shadow: 0 1px 0 white;
+    border: 1px solid #BBB;
+    color: #666!important;
+}
+
+.green {
+    background: #8AB923;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#adda4d',endColorstr='#86b846');
+    background: -webkit-gradient(linear,0 0,0 100%,from(#ADDA4D),to(#86B846));
+    background: -moz-linear-gradient(top,#ADDA4D,#86B846);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,0 1px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,0 1px 0 rgba(0,0,0,.2);
+    -o-box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,0 1px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,0 1px 0 rgba(0,0,0,.2);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+    border: 1px solid #6D8F29;
+    color: #3E5E00!important;
 }

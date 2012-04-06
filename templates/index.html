@@ -3,6 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<header><h1>{{ config.SITE_TITLE }}</h1></header>
+<div class="content">
 <ul>
     {% for link in links %}
     <li class="link" id="link-{{ link.id }}">
@@ -16,4 +18,5 @@
     </li>
     {% endfor %}
 </ul>
+</div>
 {% endblock %}

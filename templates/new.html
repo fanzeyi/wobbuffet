@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add link to Bookmarks{% endblock %}
+
+{% block content %}
+<style>
+body {margin-bottom: 0; }
+</style>
+<form action="/add?auth={{ auth }}" method="POST">
+    <div class="input-group">
+        <label for="title">Title</label>
+        <div class="input-controls">
+            <input type="TEXT" name="title" value="{{ title }}" placeholder="Title"/>
+        </div>
+    </div>
+    <div class="input-group">
+        <label for="url">URL</label>
+        <div class="input-controls">
+            <input type="TEXT" name="url" value="{{ url }}" class="disabled" readonly />
+        </div>
+    </div>
+    <div class="input-group">
+        <label for="comment">Comment</label>
+        <div class="input-controls">
+            <textarea name="comment" placeholder="Comment here."></textarea>
+        </div>
+    </div>
+    <div class="form-control">
+        <button type="button" class="gray">Close</button>
+        <button type="submit" class="green">Submit</button>
+    </div>
+</form>
+{% endblock %}
