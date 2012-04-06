@@ -16,3 +16,5 @@ Install
 -------
 
 run ``python create_config.py``, then run ``python wobbuffet.py`` is enough.
+
+visit ``/button`` to get your own bookmarks button.
