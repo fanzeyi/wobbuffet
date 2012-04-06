@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<header><h1>{{ config.SITE_TITLE }}</h1></header>
+<div class="content">
+    <a class="btn gray" title="Dragag this to your Bookmarks bar" href="javascript:void((function(s,d,e){var f='http://{{ netloc }}/add?auth={{ config.AUTH }}&link=',u=d.location,l=d.title,p=[e(u),'&title=',e(l)].join('');function a(){if(!window.open([f,p].join(''),'xnshare',['toolbar=0,status=0,resizable=1,width=626,height=436,left=',(s.width-626)/2,',top=',(s.height-436)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else a();})(screen,document,encodeURIComponent));">Add to my Bookmarks</a>
+</div>
+{% endblock %}

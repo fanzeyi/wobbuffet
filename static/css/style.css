@@ -110,7 +110,7 @@ form {
     color: #888; 
 }
 
-button {
+button, .btn{
     margin-left: 10px; 
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

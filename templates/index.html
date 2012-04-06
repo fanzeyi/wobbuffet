@@ -10,7 +10,7 @@
     <li class="link" id="link-{{ link.id }}">
         <div class="link-meta">
             <div class="link-title"><a href="{{ link.url }}">{{ link.title }}</a></div>
-            <div class="link-siteurl">{{ link.url }}</div>
+            <div class="link-siteurl">{{ link.url | netloc }}</div>
         </div>
         <div class="link-comment">
             <p>{{ link.comment }}</p>

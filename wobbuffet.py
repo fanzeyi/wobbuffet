@@ -2,14 +2,16 @@
 # AUTHOR: Zeray Rice <fanzeyi1994@gmail.com>
 # FILE: wobbuffet.py
 # CREATED: 15:57:06 06/04/2012
-# MODIFIED: 17:36:02 06/04/2012
+# MODIFIED: 17:59:34 06/04/2012
 
 import datetime
+import urlparse
 from functools import wraps
 
 from flask import Flask
 from flask import abort
 from flask import request
+from flask import Response
 from flask import render_template
 from flaskext.sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
@@ -39,6 +41,20 @@ def authentication(f):
             return abort(404)
         return f(*args, **kwargs)
     return _auth_decorator
+
+def require_login(f):
+    @wraps(f)
+    def _auth_decorator(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not (auth.username == app.config["ADMIN_USERNAME"]
+                            and check_password_hash(app.config["ADMIN_PASSWORD"], auth.password)):
+            return Response("Could not authenticate you", 401, {"WWW-Authenticate":'Basic realm="Login Required"'})
+        return f(*args, **kwargs)
+    return _auth_decorator
+
+@app.template_filter("netloc")
+def get_netloc(url):
+    return urlparse.urlparse(url).netloc
 
 @app.route("/")
 def index():
@@ -75,6 +91,12 @@ def post_link():
     db.session.add(link)
     db.session.commit()
     return render_template("close.html")
+
+@app.route("/button")
+@require_login
+def button_show():
+    netloc = urlparse.urlparse(request.base_url).netloc
+    return render_template("button.html", netloc = netloc)
 
 if __name__ == "__main__":
     app.run(debug = True)
