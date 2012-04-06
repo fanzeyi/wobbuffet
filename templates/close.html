@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add Success!{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="notice" style="margin-top: 100px">
+        <p>Add to Bookmarks Successfully!</p>
+        <p>This window will close in <span id="sec">3</span> seconds.</p>
+    </div>
+</div>
+<script type="text/javascript">
+var sec = 3; 
+var secText = document.getElementById("sec"); 
+setInterval(function() {
+    sec = sec - 1; 
+    if(sec <= 0) {
+        window.close(); 
+    }else{
+        secText.innerText = sec; 
+    }
+}, 1000); 
+</script>
+{% endblock %}
